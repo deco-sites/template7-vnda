@@ -7,16 +7,19 @@ import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
+import Searchbar from "$store/components/search/Searchbar.tsx";
 
-function Navbar({ items, searchbar }: {
+
+function Navbar({ items, searchbarProps, scrollPosition }: {
   items: INavItem[];
-  searchbar: SearchbarProps;
+  searchbarProps: SearchbarProps;
+  scrollPosition: number;
 }) {
   return (
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] w-full px-2 gap-2`}
       >
         <HeaderButton variant="menu" />
 
@@ -25,14 +28,15 @@ function Navbar({ items, searchbar }: {
           class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Icon id="logoVnda" width={124} height={32} stroke-width="1" />
         </a>
 
         <div class="flex gap-1">
-          <HeaderButton variant="search" />
+          {/* <HeaderButton variant="search" /> */}
           <HeaderButton variant="cart" />
         </div>
       </div>
+      <Searchbar scrollPosition={scrollPosition} {...searchbarProps} />
 
       {/* Desktop Version */}
       <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
@@ -46,7 +50,7 @@ function Navbar({ items, searchbar }: {
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
+          <HeaderSearchMenu searchbar={searchbarProps} />
           <Button
             as="a"
             variant="icon"
