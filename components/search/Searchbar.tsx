@@ -73,6 +73,7 @@ export type Props = EditableProps & {
   configVTEX?: ClientConfigVTEX;
 
   variant?: "desktop" | "mobile";
+  scrollPosition: number;
 };
 
 function Searchbar({
@@ -84,6 +85,7 @@ function Searchbar({
   suggestions: _suggestions,
   configVTEX,
   variant = "mobile",
+  scrollPosition
 }: Props) {
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -107,14 +109,15 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
+    <div class={`flex flex-col p-4 md:(py-6 px-20) ${scrollPosition > 0 ? 'hidden' : ''}`}>
       <div class="flex gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="h-[1.786rem] flex-grow flex gap-3 rounded-[.3rem] border border-[#312f4f]"
         >
           <Button
+            class="h-[25px]"
             variant="icon"
             aria-label="Search"
             htmlFor="searchbar"
@@ -123,8 +126,8 @@ function Searchbar({
             <Icon
               class="text-subdued"
               id="MagnifyingGlass"
-              width={20}
-              height={20}
+              width={15}
+              height={15}
               strokeWidth={0.01}
             />
           </Button>
@@ -139,12 +142,12 @@ function Searchbar({
 
               setSearch(value);
             }}
-            placeholder={placeholder}
+            placeholder={'Buscar'}
             role="combobox"
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <button
+          {/* <button
             type="button"
             aria-label="Clean search"
             class="focus:outline-none"
@@ -158,11 +161,11 @@ function Searchbar({
             }}
           >
             <Text variant="caption" tone="default">limpar</Text>
-          </button>
+          </button> */}
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
-      <div class="flex flex-col gap-6 divide-y divide-default mt-6 empty:mt-0 md:(flex-row divide-y-0)">
+      {/*<div class="flex flex-col gap-6 divide-y divide-default mt-6 empty:mt-0 md:(flex-row divide-y-0)">
         {searches && searches.length > 0 && !hasSuggestions && (
           <SearchTermList title="Mais buscados" terms={searches} />
         )}
@@ -212,7 +215,7 @@ function Searchbar({
             </Slider>
           </div>
         )}
-      </div>
+      </div>*/}
     </div>
   );
 }

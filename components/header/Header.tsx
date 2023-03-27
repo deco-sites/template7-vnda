@@ -8,6 +8,7 @@ import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
+import { useEffect, useState } from "preact/compat";
 
 export interface NavItem {
   label: string;
@@ -64,11 +65,17 @@ function Header(
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    document.addEventListener("scroll", () => setScrollPosition(window.scrollY))
+  }, [])
+
   return (
     <header class={`h-[${headerHeight}]`}>
       <div class="bg-default fixed w-full z-50">
-        <Alert alerts={alerts} />
-        <Navbar items={navItems} searchbar={searchbar} />
+        <Alert scrollPosition={scrollPosition} alerts={alerts} />
+        <Navbar scrollPosition={scrollPosition} items={navItems} searchbar={searchbar} />
       </div>
 
       <Modals
