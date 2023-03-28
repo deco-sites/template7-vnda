@@ -37,7 +37,7 @@ function Alert({ alerts = [], interval = 5, scrollPosition }: Props) {
           </Text>
         ))}
       </Slider>
-      <Icon onClick={() => setShow(true)} class="text-white absolute top-[9px] right-[10px]" id="XMark" width={15} height={15} strokeWidth={2} />
+      <Icon onClick={() => setShow(true)} class="text-white absolute top-[9px] right-[10px] cursor-pointer" id="XMark" width={15} height={15} strokeWidth={2} />
       <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
     </div>
   );

@@ -14,7 +14,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
   const title = (
     <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
+      class="flex-grow min-h-[40px] flex items-center justify-start font-bold text-[#312f4f]"
       variant={level === 0 ? "menu" : "caption"}
     >
       {item.label}
@@ -57,6 +57,12 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
       {hasChildren && (
         <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
+          {item.children!.map((node) => (
+            <MenuItem
+              item={node}
+              level={level + 1}
+            />
+          ))}
           <li>
             <a href={item.href} class="w-full py-2 pl-2 inline-block">
               <Text class="underline" variant="caption">
@@ -64,12 +70,6 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
               </Text>
             </a>
           </li>
-          {item.children!.map((node) => (
-            <MenuItem
-              item={node}
-              level={level + 1}
-            />
-          ))}
         </ul>
       )}
     </li>
@@ -84,7 +84,7 @@ function Menu({ items }: Props) {
       </ul>
 
       <ul class="flex flex-col py-2 bg-hover">
-        <li>
+        {/* <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
@@ -101,14 +101,14 @@ function Menu({ items }: Props) {
             <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
             <Text variant="caption">Nossas lojas</Text>
           </a>
-        </li>
+        </li> */}
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
+            <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+            <Text variant="caption">Carrinho</Text>
           </a>
         </li>
         <li>

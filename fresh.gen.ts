@@ -832,6 +832,34 @@ const manifest: DecoManifest = {
                   },
                   "required": [],
                 },
+                "bold": {
+                  "type": "boolean",
+                  "anyOf": [
+                    {
+                      "type": "boolean",
+                      "const": true,
+                    },
+                    {
+                      "type": "boolean",
+                      "const": false,
+                    },
+                  ],
+                  "title": "Bold",
+                },
+                "red": {
+                  "type": "boolean",
+                  "anyOf": [
+                    {
+                      "type": "boolean",
+                      "const": true,
+                    },
+                    {
+                      "type": "boolean",
+                      "const": false,
+                    },
+                  ],
+                  "title": "Red",
+                },
               },
               "required": [
                 "label",

@@ -1,49 +1,48 @@
 import Text from "$store/components/ui/Text.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import { headerHeight } from "./constants.ts";
+import Icon from "$store/components/ui/Icon.tsx";
 
 export interface INavItem {
   label: string;
   href: string;
   children?: INavItem[];
   image?: { src?: string; alt?: string };
+  bold?: true | false;
+  red?: true | false;
 }
 
-function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children, image } = item;
+function NavItem({ item, scrollPosition }: { item: INavItem, scrollPosition:number }) {
+  const { href, label, children, image, bold, red } = item;
 
   return (
     <li class="group flex items-center">
       <a href={href} class="px-4 py-3">
-        <Text
-          class="group-hover:border-black border-solid border-b border-white"
-          variant="menu"
+        <param
+          class={`group-hover:opacity-50 text-[.9rem] text-[#312f4f] flex gap-[5px] ${bold ? 'font-bold' : null} ${red ? 'text-[red]' : null}`}
         >
           {label}
-        </Text>
+          {children && children.length > 0 && (
+            <Icon
+              id="ChevronDown"
+              height={20}
+              width={20}
+              strokeWidth={1.5}
+            />
+          )}
+        </param>
       </a>
 
       {children && children.length > 0 &&
         (
           <div
-            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start justify-center gap-6 border-t-1 border-b-2 border-default w-screen mt-[${headerHeight}]`}
+            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start justify-center gap-6 border-t-1 border-b-2 border-default w-screen ${scrollPosition > 0 ? 'mt-[74px]' : 'mt-[170px]' }`}
             style={{ top: "0px", left: "0px" }}
           >
-            {image?.src && (
-              <Image
-                class="p-6"
-                src={image.src}
-                alt={image.alt}
-                width={300}
-                height={332}
-                loading="lazy"
-              />
-            )}
             <ul class="flex items-start justify-center gap-6">
               {children.map((node) => (
-                <li class="p-6">
-                  <a class="hover:underline" href={node.href}>
-                    <Text variant="menu">{node.label}</Text>
+                <li class="p-12">
+                  <a class="font-bold text-[#312f4f] hover:opacity-50" href={node.href}>
+                    <p>{node.label}</p>
                   </a>
 
                   <ul class="flex flex-col gap-1 mt-4">
@@ -58,6 +57,16 @@ function NavItem({ item }: { item: INavItem }) {
                 </li>
               ))}
             </ul>
+            {image?.src && (
+              <Image
+                class="p-6"
+                src={image.src}
+                alt={image.alt}
+                width={300}
+                height={332}
+                loading="lazy"
+              />
+            )}
           </div>
         )}
     </li>

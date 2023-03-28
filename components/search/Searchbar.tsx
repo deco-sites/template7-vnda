@@ -85,7 +85,7 @@ function Searchbar({
   suggestions: _suggestions,
   configVTEX,
   variant = "mobile",
-  scrollPosition
+  scrollPosition = 0
 }: Props) {
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -110,7 +110,7 @@ function Searchbar({
 
   return (
     <div class={`flex flex-col p-4 md:(py-6 px-20) ${scrollPosition > 0 ? 'hidden' : ''}`}>
-      <div class="flex gap-4">
+      <div class="flex gap-4 md:(w-[30%] mx-auto)">
         <form
           id="searchbar"
           action={action}

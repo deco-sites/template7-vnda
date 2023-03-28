@@ -25,6 +25,8 @@ export interface NavItem {
     src?: Image;
     alt?: string;
   };
+  bold?: true | false;
+  red?: true | false;
 }
 
 export interface Props {
