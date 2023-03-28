@@ -11,10 +11,6 @@ export interface Feature {
    * @description Title
    */
   title: string;
-  /**
-   * @description Description and Image alt text
-   */
-  description: string;
 }
 
 export interface Props {
@@ -25,22 +21,19 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="min-h-[280px] p-6 sm:px-0 sm:py-10">
-      <div class="border-default border-1">
-        <div class="flex flex-col justify-evenly sm:flex-row divide-y-1 sm:divide-y-0 sm:divide-x-1 divide-default mx-6 sm:mx-0 sm:my-10">
-          {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row sm:flex-col gap-4 py-6 sm:py-0 sm:px-10">
+    <Container class="min-h-[280px] p-6 px-[16px] md:px-[32px] md:py-10">
+      <div class="">
+        <div class="flex flex-col justify-evenly md:(flex-row gap-4)">
+          {features.map(({ icon: id = "Truck", title }) => (
+            <div class="flex flex-row gap-4 py-6">
               <Icon
                 id={id}
                 width={40}
                 height={40}
                 strokeWidth={2}
               />
-              <div class="flex flex-col gap-2">
-                <Text variant="heading-3">{title}</Text>
-                <Text tone="subdued" variant="caption">
-                  {description}
-                </Text>
+              <div class="flex justify-center items-center">
+                <Text class="font-normal text-[16px] text-[#312f4f]">{title}</Text>
               </div>
             </div>
           ))}

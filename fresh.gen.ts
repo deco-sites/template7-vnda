@@ -451,16 +451,10 @@ const manifest: DecoManifest = {
                   "title": "Title",
                   "description": "Title",
                 },
-                "description": {
-                  "type": "string",
-                  "title": "Description",
-                  "description": "Description and Image alt text",
-                },
               },
               "required": [
                 "icon",
                 "title",
-                "description",
               ],
             },
             "title": "Features",
