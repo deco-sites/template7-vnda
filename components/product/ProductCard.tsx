@@ -19,22 +19,30 @@ function Sizes(product: Product) {
   );
 
   return (
-    <ul class="flex justify-center items-center gap-2">
-      {options.map(([value, urls]) => {
-        const url = urls.find((url) => url === product.url) || urls[0];
+    <>
+      {
+        options.length &&
+        <p class="text-[12px] text-[#312f4f] mt-[10px]">
+          {options.length} opções disponíveis
+        </p>
+      }
+    </>
+    // <ul class="flex justify-center items-center gap-2">
+    //   {options.map(([value, urls]) => {
+    //     const url = urls.find((url) => url === product.url) || urls[0];
 
-        return (
-          <a href={url}>
-            <Avatar
-              class="bg-default"
-              variant="abbreviation"
-              content={value}
-              disabled={url === product.url}
-            />
-          </a>
-        );
-      })}
-    </ul>
+    //     return (
+    //       <a href={url}>
+    //         <Avatar
+    //           class="bg-default"
+    //           variant="abbreviation"
+    //           content={value}
+    //           disabled={url === product.url}
+    //         />
+    //       </a>
+    //     );
+    //   })}
+    // </ul>
   );
 }
 
@@ -59,15 +67,15 @@ function ProductCard({ product, preload }: Props) {
     <div
       data-deco="view-product"
       id={`product-card-${productID}`}
-      class="w-full group"
+      class="w-full group border-1 border-[#c0bfd6] rounded"
     >
       <a href={url} aria-label="product link">
-        <div class="relative w-full">
+        <div class="relative w-full border-b-1 border-[#c0bfd6]">
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={180}
+            height={180}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -76,12 +84,12 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
+            width={180}
+            height={180}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
-          {seller && (
+          {/* {seller && (
             <div
               class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
               style={{
@@ -92,28 +100,29 @@ function ProductCard({ product, preload }: Props) {
               <Sizes {...product} />
               <Button as="a" href={product.url}>Visualizar Produto</Button>
             </div>
-          )}
+          )} */}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
+        <div class="flex flex-col gap-1 p-[1rem] h-[150px] mb-[10px]">
           <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
+            class="font-bold text-[#312f4f] text-[16px]"
             variant="caption"
           >
             {name}
           </Text>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-col gap-2">
             <Text
-              class="line-through"
+              class="line-through text-[12px] text-[#312f4f]"
               variant="list-price"
               tone="subdued"
             >
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </Text>
-            <Text variant="caption" tone="price">
+            <Text class="text-[#312f4f] text-[16px] font-bold" variant="caption">
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
+          <Sizes {...product}/>
         </div>
       </a>
     </div>
