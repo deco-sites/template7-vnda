@@ -248,39 +248,16 @@ const manifest: DecoManifest = {
                   "title": "Alt",
                   "description": "Image's alt text",
                 },
-                "action": {
-                  "title": "Action",
-                  "type": "object",
-                  "properties": {
-                    "href": {
-                      "type": "string",
-                      "title": "Href",
-                    },
-                    "title": {
-                      "type": "string",
-                      "title": "Title",
-                    },
-                    "subTitle": {
-                      "type": "string",
-                      "title": "Sub Title",
-                    },
-                    "label": {
-                      "type": "string",
-                      "title": "Label",
-                    },
-                  },
-                  "required": [
-                    "href",
-                    "title",
-                    "subTitle",
-                    "label",
-                  ],
+                "href": {
+                  "type": "string",
+                  "title": "Href",
                 },
               },
               "required": [
                 "desktop",
                 "mobile",
                 "alt",
+                "href",
               ],
             },
             "title": "Images",
