@@ -6,7 +6,6 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 
 
@@ -39,18 +38,16 @@ function Navbar({ items, searchbarProps, scrollPosition }: {
       <Searchbar scrollPosition={scrollPosition} {...searchbarProps} />
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
-        <div class="flex-none w-44">
+      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3 h-[75px] max-w-[1296px] mx-auto">
+        <div class={`flex-none w-44 relative ${scrollPosition == 0 ? 'top-[-75px]' : null}`}>
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
+            <Icon id="logoVnda" width={124} height={32} />
           </a>
         </div>
         <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
+          {items.map((item) => <NavItem scrollPosition={scrollPosition} item={item} />)}
         </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbarProps} />
+        <div class={`flex-none w-44 flex items-center justify-end gap-2 relative ${scrollPosition == 0 ? 'top-[-75px]' : null}`}>
           <Button
             as="a"
             variant="icon"
