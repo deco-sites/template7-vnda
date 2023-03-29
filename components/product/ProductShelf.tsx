@@ -8,12 +8,12 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { useId } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-import { animation, keyframes, tw } from "twind/css";
 
 export interface Props {
   title: string;
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
+  hrefSeeMore: string;
 }
 
 function Dots({ products, interval = 0 }: {
@@ -44,6 +44,7 @@ function Dots({ products, interval = 0 }: {
 function ProductShelf({
   title,
   products,
+  hrefSeeMore = 'home-produtos'
 }: Props) {
   const id = useId();
 
@@ -61,7 +62,7 @@ function ProductShelf({
         {title}
       </h2>
 
-      <a class="hidden md:flex absolute right-[32px] top-[46px] w-[110px] h-[35px] border border-[#312f4f] transition-all font-medium rounded justify-center items-center text-[#312f4f] text-[14px] tracking-[.08em] hover:(bg-[#312f4f] text-[#fff])" href={'home-produtos'}>Veja mais</a>
+      <a class="hidden md:flex absolute right-[32px] top-[46px] w-[110px] h-[35px] border border-[#312f4f] transition-all font-medium rounded justify-center items-center text-[#312f4f] text-[14px] tracking-[.08em] hover:(bg-[#312f4f] text-[#fff])" href={hrefSeeMore}>Veja mais</a>
     
       <Slider
         class="gap-[16px] col-span-full mt-[30px] md:mt-[40px]"
