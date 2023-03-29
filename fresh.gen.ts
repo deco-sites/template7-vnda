@@ -1128,10 +1128,15 @@ const manifest: DecoManifest = {
             ],
             "title": "Items Per Page",
           },
+          "hrefSeeMore": {
+            "type": "string",
+            "title": "Href See More",
+          },
         },
         "required": [
           "title",
           "products",
+          "hrefSeeMore",
         ],
       },
       "outputSchema": null,

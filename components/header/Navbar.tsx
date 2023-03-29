@@ -38,7 +38,7 @@ function Navbar({ items, searchbarProps, scrollPosition }: {
       <Searchbar scrollPosition={scrollPosition} {...searchbarProps} />
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3 h-[75px] max-w-[1296px] mx-auto">
+      <div class="hidden md:flex flex-row justify-between items-center w-full pl-2 pr-3 h-[75px] max-w-[1296px] mx-auto">
         <div class={`flex-none w-44 relative ${scrollPosition == 0 ? 'top-[-75px]' : null}`}>
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
             <Icon id="logoVnda" width={124} height={32} />
