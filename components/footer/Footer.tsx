@@ -1,6 +1,7 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
@@ -51,20 +52,26 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+  return <div class={`py-6 px-[5%] ${_class}`}>{children}</div>;
 }
 
 export interface Props {
   sections?: Section[];
+  shortDescription: string;
+  address: string;
+  email: string;
+  newsletterImage: LiveImage;
+  newsletterAltImage: string;
+  newsletterHrefImage: string;
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer({ sections = [], newsletterImage, newsletterAltImage, newsletterHrefImage }: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="w-full bg-[#312f4f] flex flex-col divide-y-1 divide-default mt-[30px]">
       <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
+        <Container class="max-w-none w-full flex flex-col divide-y-1 divide-default">
           <FooterContainer>
-            <Newsletter />
+            <Newsletter newsletterHrefImage={newsletterHrefImage} newsletterAltImage={newsletterAltImage} newsletterImage={newsletterImage} />
           </FooterContainer>
 
           <FooterContainer>

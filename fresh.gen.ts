@@ -733,8 +733,40 @@ const manifest: DecoManifest = {
             },
             "title": "Sections",
           },
+          "shortDescription": {
+            "type": "string",
+            "title": "Short Description",
+          },
+          "address": {
+            "type": "string",
+            "title": "Address",
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+          },
+          "newsletterImage": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Newsletter Image",
+          },
+          "newsletterAltImage": {
+            "type": "string",
+            "title": "Newsletter Alt Image",
+          },
+          "newsletterHrefImage": {
+            "type": "string",
+            "title": "Newsletter Href Image",
+          },
         },
-        "required": [],
+        "required": [
+          "shortDescription",
+          "address",
+          "email",
+          "newsletterImage",
+          "newsletterAltImage",
+          "newsletterHrefImage",
+        ],
       },
       "outputSchema": null,
     },

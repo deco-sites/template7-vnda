@@ -7,3 +7,4 @@ export type {
   StringItem,
 } from "$store/components/footer/Footer.tsx";
 export type { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
