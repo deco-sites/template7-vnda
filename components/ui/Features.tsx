@@ -21,7 +21,7 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="min-h-[280px] p-6 px-[16px] md:px-[32px] md:py-10">
+    <Container class="p-6 px-[16px] md:px-[32px] md:py-10">
       <div class="">
         <div class="flex flex-col justify-evenly md:(flex-row gap-4)">
           {features.map(({ icon: id = "Truck", title }) => (
