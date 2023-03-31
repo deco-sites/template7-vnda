@@ -38,7 +38,7 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a href={item.href} class="font-bold">
+          <a href={item.href} class="font-bold transition-all hover:text-[#9499b3]">
             {item.label}
           </a>
         )}

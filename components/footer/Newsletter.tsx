@@ -39,7 +39,7 @@ function Newsletter({newsletterImage,newsletterAltImage,newsletterHrefImage}:Pro
             placeholder="Digite seu e-mail..."
           />
           <button
-            class="w-full md:(w-[45%]) text-[12px] p-[7px] bg-[transparent] rounded border-1 border-default text-[#fff]"
+            class="transition-all hover:(bg-[#fff] text-[#312f4f]) w-full md:(w-[45%]) text-[12px] p-[7px] bg-[transparent] rounded border-1 border-default text-[#fff]"
             type="bgutton" // prevent form's default behavior
           >
             ENVIAR
