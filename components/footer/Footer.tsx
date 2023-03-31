@@ -38,7 +38,7 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a href={item.href}>
+          <a href={item.href} class="font-bold">
             {item.label}
           </a>
         )}
@@ -65,73 +65,117 @@ export interface Props {
   newsletterHrefImage: string;
 }
 
-function Footer({ sections = [], newsletterImage, newsletterAltImage, newsletterHrefImage }: Props) {
+function Footer({ sections = [], email, address, shortDescription, newsletterImage, newsletterAltImage, newsletterHrefImage }: Props) {
   return (
-    <footer class="w-full bg-[#312f4f] flex flex-col divide-y-1 divide-default mt-[30px]">
+    <footer class="w-full bg-[#312f4f] flex flex-col mt-[30px]">
       <div>
-        <Container class="max-w-none w-full flex flex-col divide-y-1 divide-default">
-          <FooterContainer>
+        <Container class="max-w-none w-full flex flex-col">
+          <FooterContainer class="md:pb-0">
             <Newsletter newsletterHrefImage={newsletterHrefImage} newsletterAltImage={newsletterAltImage} newsletterImage={newsletterImage} />
           </FooterContainer>
 
-          <FooterContainer>
-            {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
-              {sections.map((section) => (
-                <li>
-                  <div>
-                    <Text variant="heading-3" tone="default-inverse">
-                      {section.label}
-                    </Text>
+          <FooterContainer class="flex flex-row gap-[15px] md:pt-0">
+            <a class="bg-[#fff] rounded-full" href="/">
+              <Icon
+                id={"Facebook"}
+                width={25}
+                height={25}
+                strokeWidth={1}
+              />
+            </a>
+            <a class="bg-[#fff] rounded-full" href="/">
+              <Icon
+                id={"Instagram"}
+                width={25}
+                height={25}
+                strokeWidth={1}
+              />
+            </a>
+            <a class="bg-[#fff] rounded-full" href="/">
+              <Icon
+                id={"Facebook"}
+                width={25}
+                height={25}
+                strokeWidth={1}
+              />
+            </a>
+            <a class="bg-[#fff] rounded-full" href="/">
+              <Icon
+                id={"Instagram"}
+                width={25}
+                height={25}
+                strokeWidth={1}
+              />
+            </a>
+          </FooterContainer>
 
-                    <ul
-                      class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <SectionItem item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <div class="flex flex-col md:(flex-row px-[5%])">
+            <FooterContainer class="md:(w-[25%] px-0 pr-[2%] border-r-2 border-default) flex flex-col gap-[1rem] text-[.75rem] text-[#fff]">
+              <p>{shortDescription}</p>
+              <p>{address}</p>
+              <p class="border-b-1 border-default pb-[1rem] md:border-0">{email}</p>
+            </FooterContainer>
 
-            {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <Text variant="body" tone="default-inverse">
-                    <details>
-                      <summary>
+            <FooterContainer class="md:(w-[75%] px-0 pl-[2%])">
+              {/* Desktop view */}
+              <ul class="hidden sm:flex flex-row gap-[10%] ">
+                {sections.map((section) => (
+                  <li>
+                    <div>
+                      <Text class="text-[1.17em] font-medium text-[#fff] block mb-[2rem]">
                         {section.label}
-                      </summary>
+                      </Text>
 
                       <ul
                         class={`flex ${
                           isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
+                        } gap-2 pt-2`}
                       >
                         {section.children.map((item) => (
-                          <li>
+                          <li class="text-[.84rem] mb-[.5rem]">
                             <SectionItem item={item} />
                           </li>
                         ))}
                       </ul>
-                    </details>
-                  </Text>
-                </li>
-              ))}
-            </ul>
-          </FooterContainer>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Mobile view */}
+              <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+                {sections.map((section) => (
+                  <li class="mb-[1rem]">
+                    <Text variant="body" tone="default-inverse">
+                      <details>
+                        <summary>
+                          {section.label}
+                        </summary>
+
+                        <ul
+                          class={`flex ${
+                            isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                          } gap-2 px-2 pt-2`}
+                        >
+                          {section.children.map((item) => (
+                            <li class="mb-[.5rem]">
+                              <SectionItem item={item} />
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    </Text>
+                  </li>
+                ))}
+              </ul>
+            </FooterContainer>
+          </div>
+
         </Container>
       </div>
 
       <div>
-        <Container class="w-full">
+        <Container class="max-w-none w-full border-t-1 border-default md:border-0">
           <FooterContainer class="flex justify-between w-full">
             <Text
               class="flex items-center gap-1"
@@ -157,9 +201,9 @@ function Footer({ sections = [], newsletterImage, newsletterAltImage, newsletter
                 >
                   <Icon
                     class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Instagram"
+                    width={30}
+                    height={30}
+                    id="Visa"
                     strokeWidth={1}
                   />
                 </a>
@@ -173,14 +217,18 @@ function Footer({ sections = [], newsletterImage, newsletterAltImage, newsletter
                 >
                   <Icon
                     class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Discord"
+                    width={26}
+                    height={20}
+                    id="Mastercard"
                     strokeWidth={5}
                   />
                 </a>
               </li>
             </ul>
+          </FooterContainer>
+          <FooterContainer class="flex flex-col md:flex-row justify-between w-full">
+            <p class="text-center text-[.857rem] text-[#fff] mb-[1rem]">2022 | Nome da Loja Ltda. - CNPJ 00.000.000/0000-00</p>
+            <p class="text-center text-[.857rem] text-[#9499b3]">Vnda - Tecnologia em E-commerce</p>
           </FooterContainer>
         </Container>
       </div>
