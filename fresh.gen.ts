@@ -17,6 +17,7 @@ import * as $$3 from "./islands/HeaderModals.tsx";
 import * as $$4 from "./islands/HeaderSearchMenu.tsx";
 import * as $$5 from "./islands/SearchControls.tsx";
 import * as $$6 from "./islands/SliderJS.tsx";
+import * as $$7 from "./islands/TabLayout.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/Categories.tsx";
@@ -33,14 +34,15 @@ import * as $$$12 from "./sections/ProductDetails.tsx";
 import * as $$$13 from "./sections/ProductGallery.tsx";
 import * as $$$14 from "./sections/ProductShelf.tsx";
 import * as $$$15 from "./sections/SearchControls.tsx";
-import * as $$$16 from "./sections/WhatsApp.tsx";
-import * as $$$17 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$19 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$20 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$21 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$22 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$23 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$16 from "./sections/TabLayout.tsx";
+import * as $$$17 from "./sections/WhatsApp.tsx";
+import * as $$$18 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$20 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$21 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$22 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$23 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$24 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -77,6 +79,7 @@ const manifest: DecoManifest = {
     "./islands/HeaderSearchMenu.tsx": $$4,
     "./islands/SearchControls.tsx": $$5,
     "./islands/SliderJS.tsx": $$6,
+    "./islands/TabLayout.tsx": $$7,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -95,14 +98,15 @@ const manifest: DecoManifest = {
     "./sections/ProductGallery.tsx": $$$13,
     "./sections/ProductShelf.tsx": $$$14,
     "./sections/SearchControls.tsx": $$$15,
-    "./sections/WhatsApp.tsx": $$$16,
-    "deco-sites/std/sections/SEO.tsx": $$$17,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$18,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$19,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$20,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$21,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$22,
-    "deco-sites/std/sections/configYourViews.tsx": $$$23,
+    "./sections/TabLayout.tsx": $$$16,
+    "./sections/WhatsApp.tsx": $$$17,
+    "deco-sites/std/sections/SEO.tsx": $$$18,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$19,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$20,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$21,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$22,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$23,
+    "deco-sites/std/sections/configYourViews.tsx": $$$24,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1292,6 +1296,42 @@ const manifest: DecoManifest = {
         },
         "required": [
           "page",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/TabLayout.tsx": {
+      "inputSchema": {
+        "title": " Tab Layout",
+        "type": "object",
+        "properties": {
+          "Tabs": {
+            "type": "array",
+            "items": {
+              "title": "Tab",
+              "type": "object",
+              "properties": {
+                "products": {
+                  "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+                  "format": "live-function",
+                  "type": "string",
+                  "title": "Products",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+              },
+              "required": [
+                "products",
+                "title",
+              ],
+            },
+            "title": " Tabs",
+          },
+        },
+        "required": [
+          "Tabs",
         ],
       },
       "outputSchema": null,
