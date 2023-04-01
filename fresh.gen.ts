@@ -1305,33 +1305,32 @@ const manifest: DecoManifest = {
         "title": " Tab Layout",
         "type": "object",
         "properties": {
-          "Tabs": {
-            "type": "array",
-            "items": {
-              "title": "Tab",
-              "type": "object",
-              "properties": {
-                "products": {
-                  "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
-                  "format": "live-function",
-                  "type": "string",
-                  "title": "Products",
-                },
-                "title": {
-                  "type": "string",
-                  "title": "Title",
-                },
-              },
-              "required": [
-                "products",
-                "title",
-              ],
-            },
-            "title": " Tabs",
+          "titleTab1": {
+            "type": "string",
+            "title": "Title Tab1",
+          },
+          "productsTab1": {
+            "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+            "format": "live-function",
+            "type": "string",
+            "title": "Products Tab1",
+          },
+          "titleTab2": {
+            "type": "string",
+            "title": "Title Tab2",
+          },
+          "productsTab2": {
+            "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+            "format": "live-function",
+            "type": "string",
+            "title": "Products Tab2",
           },
         },
         "required": [
-          "Tabs",
+          "titleTab1",
+          "productsTab1",
+          "titleTab2",
+          "productsTab2",
         ],
       },
       "outputSchema": null,

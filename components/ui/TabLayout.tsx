@@ -1,21 +1,21 @@
 import Container from "$store/components/ui/Container.tsx";
 import { useState } from "preact/hooks";
- import {
-  Props as ProductShelfProps,
-} from "$store/components/product/ProductShelf.tsx";
+ import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-export interface Tab {
-  products: LoaderReturnType<Product[] | null>;
-  title: string;
-}
 
 export interface Props {
-  Tabs: Tab[];
+  titleTab1: string;
+  productsTab1: LoaderReturnType<Product[] | null>;
+  titleTab2: string;
+  productsTab2: LoaderReturnType<Product[] | null>;
 }
 
 function TabLayout({
-  Tabs
+  titleTab1,
+  productsTab1,
+  titleTab2,
+  productsTab2
 }: Props) {
 
   const [toggleState, setToggleState] = useState(1);
@@ -28,43 +28,31 @@ function TabLayout({
     <Container
       class="flex flex-col relative px-[16px] md:px-[32px] max-w-[1296px] gap-[20px] grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px] py-10"
     >
-      <div className="bloc-tabs flex border-b-2 border-[#9499b3]">
+      <div className="flex border-b-2 border-[#9499b3]">
         <button
-          className={`${toggleState === 1 ? "active-tabs font-bold border-b-2 border-[#312f4f]" : 'font-light'} tabs relative top-[2px] text-[#312f4f] text-[1.3rem] px-[16px] py-[8px] focus:outline-none`}
+          className={`${toggleState === 1 ? "font-bold border-b-2 border-[#312f4f]" : 'font-light'} relative top-[2px] text-[#312f4f] text-[1.3rem] px-[16px] py-[8px] focus:outline-none`}
           onClick={() => toggleTab(1)}
         >
-          Ofertas
+          {titleTab1}
         </button>
         <button
-          className={`${toggleState === 2 ? "active-tabs font-bold border-b-2 border-[#312f4f]" : 'font-light'} tabs relative top-[2px] text-[#312f4f] text-[1.3rem] px-[16px] py-[8px] focus:outline-none`}
+          className={`${toggleState === 2 ? "font-bold border-b-2 border-[#312f4f]" : 'font-light'} relative top-[2px] text-[#312f4f] text-[1.3rem] px-[16px] py-[8px] focus:outline-none`}
           onClick={() => toggleTab(2)}
         >
-          Mais vendidos
+          {titleTab2}
         </button>
       </div>
 
-      <div className="content-tabs">
+      <div>
         <div
-          className={`content ${toggleState === 1 ? "active-content block" : "hidden"}`}
+          className={`${toggleState === 1 ? "block" : "hidden"}`}
         >
-          <h2>Content 1</h2>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
+          <ProductShelf title="" products={productsTab1} hrefSeeMore="" />
         </div>
         <div
-          className={`content ${toggleState === 2 ? "active-content block" : "hidden"}`}
+          className={`${toggleState === 2 ? "block" : "hidden"}`}
         >
-          <h2>Content 2</h2>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
+          <ProductShelf title="" products={productsTab2} hrefSeeMore="" />
         </div>
       </div>
     </Container>
