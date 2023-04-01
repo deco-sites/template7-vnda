@@ -27,19 +27,20 @@ import * as $$$6 from "./sections/Features.tsx";
 import * as $$$7 from "./sections/Footer.tsx";
 import * as $$$8 from "./sections/Header.tsx";
 import * as $$$9 from "./sections/Highlights.tsx";
-import * as $$$10 from "./sections/LinkTree.tsx";
-import * as $$$11 from "./sections/ProductDetails.tsx";
-import * as $$$12 from "./sections/ProductGallery.tsx";
-import * as $$$13 from "./sections/ProductShelf.tsx";
-import * as $$$14 from "./sections/SearchControls.tsx";
-import * as $$$15 from "./sections/WhatsApp.tsx";
-import * as $$$16 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$17 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$19 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$20 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$21 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$22 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$10 from "./sections/Instafeed.tsx";
+import * as $$$11 from "./sections/LinkTree.tsx";
+import * as $$$12 from "./sections/ProductDetails.tsx";
+import * as $$$13 from "./sections/ProductGallery.tsx";
+import * as $$$14 from "./sections/ProductShelf.tsx";
+import * as $$$15 from "./sections/SearchControls.tsx";
+import * as $$$16 from "./sections/WhatsApp.tsx";
+import * as $$$17 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$18 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$20 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$21 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$22 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$23 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -88,19 +89,20 @@ const manifest: DecoManifest = {
     "./sections/Footer.tsx": $$$7,
     "./sections/Header.tsx": $$$8,
     "./sections/Highlights.tsx": $$$9,
-    "./sections/LinkTree.tsx": $$$10,
-    "./sections/ProductDetails.tsx": $$$11,
-    "./sections/ProductGallery.tsx": $$$12,
-    "./sections/ProductShelf.tsx": $$$13,
-    "./sections/SearchControls.tsx": $$$14,
-    "./sections/WhatsApp.tsx": $$$15,
-    "deco-sites/std/sections/SEO.tsx": $$$16,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$17,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$18,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$19,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$20,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$21,
-    "deco-sites/std/sections/configYourViews.tsx": $$$22,
+    "./sections/Instafeed.tsx": $$$10,
+    "./sections/LinkTree.tsx": $$$11,
+    "./sections/ProductDetails.tsx": $$$12,
+    "./sections/ProductGallery.tsx": $$$13,
+    "./sections/ProductShelf.tsx": $$$14,
+    "./sections/SearchControls.tsx": $$$15,
+    "./sections/WhatsApp.tsx": $$$16,
+    "deco-sites/std/sections/SEO.tsx": $$$17,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$18,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$19,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$20,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$21,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$22,
+    "deco-sites/std/sections/configYourViews.tsx": $$$23,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1052,6 +1054,67 @@ const manifest: DecoManifest = {
         },
         "required": [
           "title",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Instafeed.tsx": {
+      "inputSchema": {
+        "title": " Instafeed",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title",
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "title": "Post",
+              "type": "object",
+              "properties": {
+                "Image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": " Image",
+                },
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+              },
+              "required": [
+                "Image",
+                "label",
+                "href",
+              ],
+            },
+            "title": "Posts",
+          },
+          "instaHref": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Insta Href",
+          },
+          "instaAt": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Insta At",
+          },
+        },
+        "required": [
+          "posts",
         ],
       },
       "outputSchema": null,
