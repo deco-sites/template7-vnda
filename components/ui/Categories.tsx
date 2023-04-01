@@ -12,7 +12,6 @@ export interface Props {
 }
 
 function Categories({Categories}:Props) {
-  console.log(Categories)
   return (
     <Container class="max-w-[1296px] mx-auto px-[16px] md:px-[32px] my-[2rem]">
       <h2 class="text-[1.4rem] md:text-[32px] mb-[30px] tracking-[.08em] text-center md:text-left text-[#312f4f] font-normal">CATEGORIAS</h2>
