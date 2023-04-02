@@ -37,14 +37,15 @@ import * as $$$15 from "./sections/ProductShelf.tsx";
 import * as $$$16 from "./sections/SearchControls.tsx";
 import * as $$$17 from "./sections/TabLayout.tsx";
 import * as $$$18 from "./sections/TextContent.tsx";
-import * as $$$19 from "./sections/WhatsApp.tsx";
-import * as $$$20 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$21 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$22 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$23 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$24 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$25 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$26 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$19 from "./sections/TreatmentContent.tsx";
+import * as $$$20 from "./sections/WhatsApp.tsx";
+import * as $$$21 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$22 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$23 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$24 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$25 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$26 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$27 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -103,14 +104,15 @@ const manifest: DecoManifest = {
     "./sections/SearchControls.tsx": $$$16,
     "./sections/TabLayout.tsx": $$$17,
     "./sections/TextContent.tsx": $$$18,
-    "./sections/WhatsApp.tsx": $$$19,
-    "deco-sites/std/sections/SEO.tsx": $$$20,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$21,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$22,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$23,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$24,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$25,
-    "deco-sites/std/sections/configYourViews.tsx": $$$26,
+    "./sections/TreatmentContent.tsx": $$$19,
+    "./sections/WhatsApp.tsx": $$$20,
+    "deco-sites/std/sections/SEO.tsx": $$$21,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$22,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$23,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$24,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$25,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$26,
+    "deco-sites/std/sections/configYourViews.tsx": $$$27,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1383,6 +1385,43 @@ const manifest: DecoManifest = {
         "required": [
           "title",
           "description",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/TreatmentContent.tsx": {
+      "inputSchema": {
+        "title": " Treatment Content",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "address": {
+            "type": "string",
+            "title": "Address",
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+          },
+          "phone": {
+            "type": "string",
+            "title": "Phone",
+          },
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+        },
+        "required": [
+          "title",
+          "address",
+          "email",
+          "phone",
+          "image",
         ],
       },
       "outputSchema": null,
