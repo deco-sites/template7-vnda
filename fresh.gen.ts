@@ -27,22 +27,23 @@ import * as $$$5 from "./sections/DoubleBanner.tsx";
 import * as $$$6 from "./sections/Features.tsx";
 import * as $$$7 from "./sections/Footer.tsx";
 import * as $$$8 from "./sections/Header.tsx";
-import * as $$$9 from "./sections/Highlights.tsx";
-import * as $$$10 from "./sections/Instafeed.tsx";
-import * as $$$11 from "./sections/LinkTree.tsx";
-import * as $$$12 from "./sections/ProductDetails.tsx";
-import * as $$$13 from "./sections/ProductGallery.tsx";
-import * as $$$14 from "./sections/ProductShelf.tsx";
-import * as $$$15 from "./sections/SearchControls.tsx";
-import * as $$$16 from "./sections/TabLayout.tsx";
-import * as $$$17 from "./sections/WhatsApp.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$19 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$20 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$21 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$22 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$23 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$24 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$9 from "./sections/HeroBanner.tsx";
+import * as $$$10 from "./sections/Highlights.tsx";
+import * as $$$11 from "./sections/Instafeed.tsx";
+import * as $$$12 from "./sections/LinkTree.tsx";
+import * as $$$13 from "./sections/ProductDetails.tsx";
+import * as $$$14 from "./sections/ProductGallery.tsx";
+import * as $$$15 from "./sections/ProductShelf.tsx";
+import * as $$$16 from "./sections/SearchControls.tsx";
+import * as $$$17 from "./sections/TabLayout.tsx";
+import * as $$$18 from "./sections/WhatsApp.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$20 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$21 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$22 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$23 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$24 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$25 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -91,22 +92,23 @@ const manifest: DecoManifest = {
     "./sections/Features.tsx": $$$6,
     "./sections/Footer.tsx": $$$7,
     "./sections/Header.tsx": $$$8,
-    "./sections/Highlights.tsx": $$$9,
-    "./sections/Instafeed.tsx": $$$10,
-    "./sections/LinkTree.tsx": $$$11,
-    "./sections/ProductDetails.tsx": $$$12,
-    "./sections/ProductGallery.tsx": $$$13,
-    "./sections/ProductShelf.tsx": $$$14,
-    "./sections/SearchControls.tsx": $$$15,
-    "./sections/TabLayout.tsx": $$$16,
-    "./sections/WhatsApp.tsx": $$$17,
-    "deco-sites/std/sections/SEO.tsx": $$$18,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$19,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$20,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$21,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$22,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$23,
-    "deco-sites/std/sections/configYourViews.tsx": $$$24,
+    "./sections/HeroBanner.tsx": $$$9,
+    "./sections/Highlights.tsx": $$$10,
+    "./sections/Instafeed.tsx": $$$11,
+    "./sections/LinkTree.tsx": $$$12,
+    "./sections/ProductDetails.tsx": $$$13,
+    "./sections/ProductGallery.tsx": $$$14,
+    "./sections/ProductShelf.tsx": $$$15,
+    "./sections/SearchControls.tsx": $$$16,
+    "./sections/TabLayout.tsx": $$$17,
+    "./sections/WhatsApp.tsx": $$$18,
+    "deco-sites/std/sections/SEO.tsx": $$$19,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$20,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$21,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$22,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$23,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$24,
+    "deco-sites/std/sections/configYourViews.tsx": $$$25,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1009,6 +1011,33 @@ const manifest: DecoManifest = {
         },
         "required": [
           "alerts",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/HeroBanner.tsx": {
+      "inputSchema": {
+        "title": " Hero Banner",
+        "type": "object",
+        "properties": {
+          "Banner": {
+            "format": "image-uri",
+            "type": "string",
+            "title": " Banner",
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+        },
+        "required": [
+          "Banner",
+          "title",
+          "description",
         ],
       },
       "outputSchema": null,
