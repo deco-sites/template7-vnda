@@ -993,20 +993,32 @@ const manifest: DecoManifest = {
               "Navigation items used both on mobile and desktop menus",
           },
           "products": {
-            "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+            "properties": {
+              "returnType": {
+                "const": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Product suggestions",
             "description": "Product suggestions displayed on search",
           },
           "suggestions": {
-            "$id": "fa622ecbfb24e1b878a945d22f51f46a3e939525",
+            "properties": {
+              "returnType": {
+                "const": "fa622ecbfb24e1b878a945d22f51f46a3e939525",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Enable Top Search terms",
           },
           "configVTEX": {
-            "$id": "4a94f4ff0e8e4441f26651aaed22f0df82f38c93",
+            "properties": {
+              "returnType": {
+                "const": "4a94f4ff0e8e4441f26651aaed22f0df82f38c93",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Config V T E X",
@@ -1250,7 +1262,11 @@ const manifest: DecoManifest = {
         "type": "object",
         "properties": {
           "page": {
-            "$id": "bf6c5311c35f44b8ba333ce3c2acd5fed0d8ad8a",
+            "properties": {
+              "returnType": {
+                "const": "bf6c5311c35f44b8ba333ce3c2acd5fed0d8ad8a",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Page",
@@ -1268,7 +1284,11 @@ const manifest: DecoManifest = {
         "type": "object",
         "properties": {
           "page": {
-            "$id": "dc324bcbdc313fdca3eaf23a9c1547d4702ee1ce",
+            "properties": {
+              "returnType": {
+                "const": "dc324bcbdc313fdca3eaf23a9c1547d4702ee1ce",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Page",
@@ -1290,7 +1310,11 @@ const manifest: DecoManifest = {
             "title": "Title",
           },
           "products": {
-            "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+            "properties": {
+              "returnType": {
+                "const": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Products",
@@ -1321,7 +1345,11 @@ const manifest: DecoManifest = {
         "type": "object",
         "properties": {
           "page": {
-            "$id": "dc324bcbdc313fdca3eaf23a9c1547d4702ee1ce",
+            "properties": {
+              "returnType": {
+                "const": "dc324bcbdc313fdca3eaf23a9c1547d4702ee1ce",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Page",
@@ -1343,7 +1371,11 @@ const manifest: DecoManifest = {
             "title": "Title Tab1",
           },
           "productsTab1": {
-            "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+            "properties": {
+              "returnType": {
+                "const": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Products Tab1",
@@ -1353,7 +1385,11 @@ const manifest: DecoManifest = {
             "title": "Title Tab2",
           },
           "productsTab2": {
-            "$id": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+            "properties": {
+              "returnType": {
+                "const": "bae848f3957be1cb6ed2c2ac3847787272389ee9",
+              },
+            },
             "format": "live-function",
             "type": "string",
             "title": "Products Tab2",
