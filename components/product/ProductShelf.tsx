@@ -44,7 +44,7 @@ function Dots({ products, interval = 0 }: {
 function ProductShelf({
   title,
   products,
-  hrefSeeMore = 'home-produtos'
+  hrefSeeMore
 }: Props) {
   const id = useId();
 
@@ -62,7 +62,10 @@ function ProductShelf({
         {title}
       </h2>
 
-      <a class="hidden md:flex absolute right-[32px] top-[46px] w-[110px] h-[35px] border border-[#312f4f] transition-all font-medium rounded justify-center items-center text-[#312f4f] text-[14px] tracking-[.08em] hover:(bg-[#312f4f] text-[#fff])" href={hrefSeeMore}>Veja mais</a>
+      {
+        hrefSeeMore &&
+        <a class="hidden md:flex absolute right-[32px] top-[46px] w-[110px] h-[35px] border border-[#312f4f] transition-all font-medium rounded justify-center items-center text-[#312f4f] text-[14px] tracking-[.08em] hover:(bg-[#312f4f] text-[#fff])" href={hrefSeeMore}>Veja mais</a>
+      }
     
       <Slider
         class="gap-[16px] col-span-full mt-[30px] md:mt-[40px]"

@@ -13,7 +13,7 @@ export interface Props {
 
 function Categories({Categories}:Props) {
   return (
-    <Container class="max-w-[1296px] mx-auto px-[16px] md:px-[32px] my-[2rem]">
+    <Container class="max-w-[1296px] mx-auto px-[16px] md:px-[32px] mb-[2rem]">
       <h2 class="text-[1.4rem] md:text-[32px] mb-[30px] tracking-[.08em] text-center md:text-left text-[#312f4f] font-normal">CATEGORIAS</h2>
       <div class="flex flex-wrap gap-[.8rem] md:gap-[1.5rem]">
         <div class="w-full md:w-[31%] rounded border border-[#c0bfd6] p-[1rem]">

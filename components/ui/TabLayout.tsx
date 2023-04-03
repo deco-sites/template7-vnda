@@ -26,9 +26,9 @@ function TabLayout({
 
   return (
     <Container
-      class="flex flex-col relative px-[16px] md:px-[32px] max-w-[1296px] gap-[20px] grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px] py-10"
+      class="flex flex-col relative gap-[20px] grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px] pt-10"
     >
-      <div className="flex border-b-2 border-[#9499b3]">
+      <div className="flex z-10 mx-[16px] md:mx-[32px] max-w-[1296px] border-b-2 border-[#9499b3]">
         <button
           className={`${toggleState === 1 ? "font-bold border-b-2 border-[#312f4f]" : 'font-light'} relative top-[2px] text-[#312f4f] text-[1.3rem] px-[16px] py-[8px] focus:outline-none`}
           onClick={() => toggleTab(1)}
@@ -45,12 +45,12 @@ function TabLayout({
 
       <div>
         <div
-          className={`${toggleState === 1 ? "block" : "hidden"}`}
+          className={`relative top-[-100px] z-0 ${toggleState === 1 ? "block" : "hidden"}`}
         >
           <ProductShelf title="" products={productsTab1} hrefSeeMore="" />
         </div>
         <div
-          className={`${toggleState === 2 ? "block" : "hidden"}`}
+          className={`relative top-[-100px] z-0 ${toggleState === 2 ? "block" : "hidden"}`}
         >
           <ProductShelf title="" products={productsTab2} hrefSeeMore="" />
         </div>
