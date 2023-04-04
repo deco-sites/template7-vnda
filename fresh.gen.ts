@@ -1045,15 +1045,37 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Title",
           },
-          "description": {
+          "subTitle": {
             "type": "string",
+            "title": "Sub Title",
+          },
+          "description": {
+            "type": [
+              "string",
+              "null",
+            ],
             "title": "Description",
+          },
+          "overlayBanner": {
+            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean",
+                "const": true,
+              },
+              {
+                "type": "boolean",
+                "const": false,
+              },
+            ],
+            "title": "Overlay Banner",
           },
         },
         "required": [
           "Banner",
           "title",
-          "description",
+          "subTitle",
+          "overlayBanner",
         ],
       },
       "outputSchema": null,

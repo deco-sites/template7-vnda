@@ -4,7 +4,9 @@ import Image from "deco-sites/std/components/Image.tsx";
 export interface Props {
   Banner: LiveImage;
   title: string;
-  description: string;
+  subTitle: string;
+  description?: string;
+  overlayBanner: true | false;
 }
 
 function DoubleBanner(props: Props) {
@@ -16,11 +18,12 @@ function DoubleBanner(props: Props) {
           alt={props.title}
           width={1920}
           height={328}
-          class="w-full"
+          class={`w-full ${props.overlayBanner ? 'opacity-60' : ''}`}
         />
-        <div class="md:(absolute top-[20%] left-[50%] translate-x-[-50%] items-start) max-w-[1296px] h-full w-full flex flex-col justify-center items-center gap-[5px] px-[32px] text-center">
-          <h3 class="text-[1.1rem] text-[#312f4f] uppercase mt-[10px]">{props.title}</h3>
-          <h1 class="text-[2rem] text-[#312f4f] font-bold leading-10">{props.description}</h1>
+        <div class="md:(absolute top-[10%] left-[50%] translate-x-[-50%] items-start) max-w-[1296px] h-full w-full flex flex-col justify-center items-center px-[32px] text-center">
+          <h3 class={`${props.description ? 'text-[.8rem]' : 'text-[1rem]'} text-[#312f4f] uppercase mt-[10px]`}>{props.title}</h3>
+          <h1 class={`${props.description ? 'text-[1.5rem]' : 'text-[2rem]'} text-[#312f4f] font-bold leading-10`}>{props.subTitle}</h1>
+          <p class="text-[.857rem] text-[#312f4f] text-left max-w-[500px]">{props.description}</p>
         </div>
       </div>
     </div>
