@@ -18,7 +18,7 @@ function DoubleBanner(props: Props) {
           alt={props.title}
           width={1920}
           height={328}
-          loading={'lazy'}
+          loading={'eager'}
           class={`relative z-[-2] w-full ${props.overlayBanner ? 'opacity-60' : ''}`}
         />
         <div class="z-[-1] md:(absolute top-[10%] left-[50%] translate-x-[-50%] items-start) max-w-[1296px] h-full w-full flex flex-col justify-center items-center px-[32px] text-center">
