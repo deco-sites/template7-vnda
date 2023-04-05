@@ -9,7 +9,6 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
-import { useState } from "preact/hooks";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 
@@ -45,16 +44,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleQuantity = (op:string) => {
-    if(op == '-' && quantity > 1) {
-      setQuantity(quantity - 1)
-    } else if (op == '+') {
-      setQuantity(quantity + 1)
-    }
-  }
 
   return (
     <Container class="max-w-[1296px] md:px-[32px] mt-[4rem] md:mt-[5rem]">
@@ -164,24 +153,10 @@ function Details({ page }: { page: ProductDetailsPage }) {
           {/* Add to Cart and Favorites button */}
           <p class="text-[16px] font-bold text-[#312f4f] my-[1rem]">quantidade</p>
           <div class="mb-4 sm:mb-10 flex flex-col md:flex-row gap-2">
-            <div>
-              <div>
-                <div class="md:min-w-[164px] border-1 border-[#312f4f] h-[38px] rounded flex justify-between">
-                  <button onClick={() => handleQuantity('-')} type="button" class="focus:outline-none ml-[16px] text-[32px] flex items-center">
-                    −
-                  </button>
-                  <input type="text" id="quantity" name="quantity" class="focus:outline-none max-w-[70px] font-bold text-[14px] text-center" readonly value={quantity} />
-                  <button onClick={() => handleQuantity('+')} type="button" class="focus:outline-none mr-[16px] text-[32px] flex items-center">
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
             {seller && (
               <AddToCartButton
                 skuId={productID}
                 sellerId={seller}
-                quantity={quantity}
               />
             )}
           </div>
