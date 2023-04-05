@@ -15,9 +15,10 @@ import * as $$1 from "./islands/Header.tsx";
 import * as $$2 from "./islands/HeaderButton.tsx";
 import * as $$3 from "./islands/HeaderModals.tsx";
 import * as $$4 from "./islands/HeaderSearchMenu.tsx";
-import * as $$5 from "./islands/SearchControls.tsx";
-import * as $$6 from "./islands/SliderJS.tsx";
-import * as $$7 from "./islands/TabLayout.tsx";
+import * as $$5 from "./islands/ProductDetails.tsx";
+import * as $$6 from "./islands/SearchControls.tsx";
+import * as $$7 from "./islands/SliderJS.tsx";
+import * as $$8 from "./islands/TabLayout.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/Categories.tsx";
@@ -80,9 +81,10 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$2,
     "./islands/HeaderModals.tsx": $$3,
     "./islands/HeaderSearchMenu.tsx": $$4,
-    "./islands/SearchControls.tsx": $$5,
-    "./islands/SliderJS.tsx": $$6,
-    "./islands/TabLayout.tsx": $$7,
+    "./islands/ProductDetails.tsx": $$5,
+    "./islands/SearchControls.tsx": $$6,
+    "./islands/SliderJS.tsx": $$7,
+    "./islands/TabLayout.tsx": $$8,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,

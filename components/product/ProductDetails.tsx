@@ -9,6 +9,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import { useState } from "preact/hooks";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 
@@ -44,10 +45,21 @@ function Details({ page }: { page: ProductDetailsPage }) {
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantity = (op:string) => {
+    if(op == '-' && quantity > 1) {
+      setQuantity(quantity - 1)
+    } else if (op == '+') {
+      setQuantity(quantity + 1)
+    }
+  }
+
   console.log(product)
   return (
-    <Container class="mt-[4rem] md:mt-[6rem]">
-      <div class="flex flex-col gap-4 sm:flex-row sm:gap-10">
+    <Container class="max-w-[1296px] md:px-[32px] mt-[4rem] md:mt-[5rem]">
+      <div class="flex flex-col gap-4 md:flex-row sm:gap-10">
         <div class="flex-auto px-4 md:hidden">
           <div class="mt-4 mb-[30px] sm:mt-8">
             <div>
@@ -77,20 +89,37 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
         </div>
         {/* Image Gallery */}
-        <div class="flex md:w-[60%] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
-          {[front, back ?? front].map((img, index) => (
-            <Image
-              style={{ aspectRatio: "414 / 414" }}
-              class="snap-cente w-full"
-              src={img.url!}
-              alt={img.alternateName}
-              width={414}
-              height={414}
-              // Preload LCP image for better web vitals
-              preload={index === 0}
-              loading={index === 0 ? "eager" : "lazy"}
-            />
-          ))}
+        <div class="md:w-[60%] md:(flex mt-8)">
+          <div class="hidden md:(flex flex-col w-[15%] gap-[10px])">
+            {[front, back ?? front].map((img, index) => (
+              <Image
+                style={{ aspectRatio: "55 / 55" }}
+                class="w-full"
+                src={img.url!}
+                alt={img.alternateName}
+                width={55}
+                height={55}
+                // Preload LCP image for better web vitals
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "eager"}
+              />
+            ))}
+          </div>
+          <div class="flex md:(w-[85%]) flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
+            {[front, back ?? front].map((img, index) => (
+              <Image
+                style={{ aspectRatio: "414 / 414" }}
+                class="snap-cente w-full"
+                src={img.url!}
+                alt={img.alternateName}
+                width={414}
+                height={414}
+                // Preload LCP image for better web vitals
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            ))}
+          </div>
         </div>
         {/* Product Info */}
         <div class="flex-auto md:w-[40%] px-4 sm:px-0">
@@ -125,7 +154,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
           <div class="mt-4 sm:mt-6">
             <Text variant="caption">
               {description && (
-                <div class="ml-2 mt-2 text-[14px] text-[#312f4f]">{description}</div>
+                <div class="mt-2 text-[14px] text-[#312f4f]">{description}</div>
               )}
             </Text>
           </div>
@@ -134,11 +163,26 @@ function Details({ page }: { page: ProductDetailsPage }) {
             <ProductSelector product={product} />
           </div>
           {/* Add to Cart and Favorites button */}
-          <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+          <p class="text-[16px] font-bold text-[#312f4f] my-[1rem]">quantidade</p>
+          <div class="mb-4 sm:mb-10 flex flex-col md:flex-row gap-2">
+            <div>
+              <div>
+                <div class="md:min-w-[164px] border-1 border-[#312f4f] h-[38px] rounded flex justify-between">
+                  <button onClick={() => handleQuantity('-')} type="button" class="focus:outline-none ml-[16px] text-[32px] flex items-center">
+                    −
+                  </button>
+                  <input type="text" id="quantity" name="quantity" class="focus:outline-none max-w-[70px] font-bold text-[14px] text-center" readonly value={quantity} />
+                  <button onClick={() => handleQuantity('+')} type="button" class="focus:outline-none mr-[16px] text-[32px] flex items-center">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
             {seller && (
               <AddToCartButton
                 skuId={productID}
                 sellerId={seller}
+                quantity={quantity}
               />
             )}
           </div>
