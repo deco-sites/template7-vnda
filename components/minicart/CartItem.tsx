@@ -23,33 +23,33 @@ function CartItem({ index }: Props) {
     name,
     quantity,
   } = item;
-
+  console.log(item)
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row justify-between items-end gap-4 bg-[#fff]">
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
+        width={82}
+        height={82}
         class="object-cover object-center"
       />
       <div class="flex-grow">
-        <Text variant="body">
+        <p class="text-[.875rem] text-[#9499b3] font-medium">
           {name}
-        </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="price" variant="caption">
+        </p>
+        <p class="text-[.7rem] text-[#9499b3]">
+          {skuName}
+        </p>
+        <div class="flex items-center gap-2 justify-end relative right-[-45px]">
+          <p class="text-[.875rem] text-[#000] font-medium" >
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </Text>
+          </p>
         </div>
-        <div class="mt-6 max-w-min">
+        <div class="mt-2">
           <QuantitySelector
             disabled={loading.value || isGift}
             quantity={quantity}

@@ -47,7 +47,7 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="mt-6 px-2 flex-grow-1 overflow-y-auto flex flex-col gap-6"
+        class="mt-6 p-6 flex-grow-1 overflow-y-auto flex flex-col gap-6 bg-[#F9FAFB]"
       >
         {cart.value.items.map((_, index) => (
           <li>
@@ -59,7 +59,7 @@ function Cart() {
       {/* Cart Footer */}
       <footer>
         {/* Subtotal */}
-        <div class="border-t-1 border-default py-4 flex flex-col gap-4">
+        <div class="py-4 flex flex-col gap-4">
           {discounts?.value && (
             <div class="flex justify-between items-center px-4">
               <Text variant="caption">Descontos</Text>
@@ -72,16 +72,17 @@ function Cart() {
         </div>
         {/* Total */}
         {total?.value && (
-          <div class="border-t-1 border-default pt-4 flex flex-col justify-end items-end gap-2 mx-4">
+          <div class="pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
-              <Text variant="body">Total</Text>
-              <Text variant="heading-3">
+              <p class="text-[.875rem] text-[#000] font-bold">Subtotal</p>
+              <p>
                 {formatPrice(total.value / 100, currencyCode!, locale)}
-              </Text>
+              </p>
             </div>
-            <Text tone="subdued" variant="caption">
-              Taxas e fretes serão calculados no checkout
-            </Text>
+            <div class="flex justify-between items-center w-full">
+              <p class="text-[.8rem] text-[#000] font-bold">Frete</p>
+              <p class="text-[.7rem] text-[#000]">Calculado na próxima etapa</p>
+            </div>
           </div>
         )}
         <div class="p-4">
@@ -90,13 +91,19 @@ function Cart() {
             target="_blank"
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
-            <Button
+            <button
               data-deco="buy-button"
-              class="w-full"
+              class="w-full bg-[#312f4f] text-[#fff] p-[1rem] hover:bg-[#9499b3] transition"
               disabled={loading.value || cart.value.items.length === 0}
             >
-              Finalizar Compra
-            </Button>
+              <div class="flex justify-between text-[12px]">
+                <p>Finalizar pedido</p>
+                {total?.value && (
+                  <p>{formatPrice(total.value / 100, currencyCode!, locale)}</p>
+                )}
+              </div>
+              
+            </button>
           </a>
         </div>
       </footer>

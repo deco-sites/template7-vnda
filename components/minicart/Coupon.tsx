@@ -26,15 +26,14 @@ function Coupon() {
   };
 
   return (
-    <div class="flex justify-between items-center px-4">
-      <Text variant="caption">Cupom de desconto</Text>
+    <div class="flex px-4">
       {!displayInput.value && (
         <Button
-          class="underline text-caption font-caption"
+          class="underline text-[12px] text-[#9499b3]"
           onClick={toggleInput}
           variant="icon"
         >
-          {coupon || "Adicionar"}
+          {coupon || "+ Adicionar cupom de desconto"}
         </Button>
       )}
       {displayInput.value && (
