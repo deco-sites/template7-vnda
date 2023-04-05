@@ -1,5 +1,6 @@
 import Container from "$store/components/ui/Container.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface CategoryProps {
   Image: LiveImage;
@@ -18,43 +19,43 @@ function Categories({Categories}:Props) {
       <div class="flex flex-wrap gap-[.8rem] md:gap-[1.5rem]">
         <div class="w-full md:w-[31%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[0].href}>
-            <img class="w-[40%]" src={Categories[0].Image} alt={Categories[0].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[0].Image} alt={Categories[0].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[0].label}</h3>
           </a>
         </div>
         <div class="w-[48%] md:w-[31%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[1].href}>
-            <img class="w-[40%]" src={Categories[1].Image} alt={Categories[1].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[1].Image} alt={Categories[1].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[1].label}</h3>
           </a>
         </div>
         <div class="w-[48%] md:w-[31%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[2].href}>
-            <img class="w-[40%]" src={Categories[2].Image} alt={Categories[2].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[2].Image} alt={Categories[2].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[2].label}</h3>
           </a>
         </div>
         <div class="w-full md:w-[22%] lg:w-[23%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[3].href}>
-            <img class="w-[40%]" src={Categories[3].Image} alt={Categories[3].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[3].Image} alt={Categories[3].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[3].label}</h3>
           </a>
         </div>
         <div class="w-[48%] md:w-[22%] lg:w-[23%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[4].href}>
-            <img class="w-[40%]" src={Categories[4].Image} alt={Categories[4].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[4].Image} alt={Categories[4].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[4].label}</h3>
           </a>
         </div>
         <div class="w-[48%] md:w-[22%] lg:w-[23%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[5].href}>
-            <img class="w-[40%]" src={Categories[5].Image} alt={Categories[5].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[5].Image} alt={Categories[5].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[5].label}</h3>
           </a>
         </div>
         <div class="w-full md:w-[22%] lg:w-[23%] rounded border border-[#c0bfd6] p-[1rem]">
           <a class="flex justify-center items-center" href={Categories[6].href}>
-            <img class="w-[40%]" src={Categories[6].Image} alt={Categories[6].label} />
+            <Image width={100} height={100} class="w-[40%]" src={Categories[6].Image} alt={Categories[6].label} />
             <h3 class="w-[60%] p-[1rem] pr-0 text-center text-[16px] font-bold">{Categories[6].label}</h3>
           </a>
         </div>
