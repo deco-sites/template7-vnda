@@ -44,21 +44,48 @@ function Details({ page }: { page: ProductDetailsPage }) {
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
-
+  console.log(product)
   return (
-    <Container class="py-0 sm:py-10">
+    <Container class="mt-[4rem] md:mt-[6rem]">
       <div class="flex flex-col gap-4 sm:flex-row sm:gap-10">
+        <div class="flex-auto px-4 md:hidden">
+          <div class="mt-4 mb-[30px] sm:mt-8">
+            <div>
+              <Text class="text-[14px] text-[#696d8c]" tone="subdued" variant="caption">
+                {gtin}
+              </Text>
+            </div>
+            <h1>
+              <p class="text-[#312f4f] text-[32px] font-bold leading-[38px]">{name}</p>
+            </h1>
+          </div>
+          {/* Prices */}
+          <div class="mt-4">
+            <div class="flex flex-col gap-2">
+              <p
+                class="line-through text-[red] text-[.857rem] font-bold"
+              >
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </p>
+              <p class="text-[30px] font-bold text-[#312f4f]">
+                {formatPrice(price, offers!.priceCurrency!)}
+              </p>
+            </div>
+              <p class="text-[.857rem] text-[#312f4f] opacity-70">
+              {installments}
+            </p>
+          </div>
+        </div>
         {/* Image Gallery */}
-        <div class="flex flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
+        <div class="flex md:w-[60%] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
           {[front, back ?? front].map((img, index) => (
             <Image
-              style={{ aspectRatio: "360 / 500" }}
-              class="snap-center min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
-              sizes="(max-width: 640px) 100vw, 30vw"
+              style={{ aspectRatio: "414 / 414" }}
+              class="snap-cente w-full"
               src={img.url!}
               alt={img.alternateName}
-              width={360}
-              height={500}
+              width={414}
+              height={414}
               // Preload LCP image for better web vitals
               preload={index === 0}
               loading={index === 0 ? "eager" : "lazy"}
@@ -66,38 +93,40 @@ function Details({ page }: { page: ProductDetailsPage }) {
           ))}
         </div>
         {/* Product Info */}
-        <div class="flex-auto px-4 sm:px-0">
-          {/* Breadcrumb */}
-          <Breadcrumb
-            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-          />
+        <div class="flex-auto md:w-[40%] px-4 sm:px-0">
           {/* Code and name */}
-          <div class="mt-4 sm:mt-8">
+          <div class="hidden md:block mt-4 sm:mt-8">
             <div>
-              <Text tone="subdued" variant="caption">
-                Cod. {gtin}
+              <Text class="text-[14px] text-[#696d8c]" tone="subdued" variant="caption">
+                {gtin}
               </Text>
             </div>
             <h1>
-              <Text variant="heading-3">{name}</Text>
+              <p class="text-[#312f4f] text-[32px] font-bold leading-[38px]">{name}</p>
             </h1>
           </div>
           {/* Prices */}
-          <div class="mt-4">
-            <div class="flex flex-row gap-2 items-center">
-              <Text
-                class="line-through"
-                tone="subdued"
-                variant="list-price"
+          <div class="hidden md:block mt-4">
+            <div class="flex flex-col">
+              <p
+                class="line-through text-[red] text-[.857rem] font-bold"
               >
                 {formatPrice(listPrice, offers!.priceCurrency!)}
-              </Text>
-              <Text tone="price" variant="heading-3">
+              </p>
+              <p class="text-[30px] font-bold text-[#312f4f]">
                 {formatPrice(price, offers!.priceCurrency!)}
-              </Text>
+              </p>
             </div>
-            <Text tone="subdued" variant="caption">
+            <p class="text-[.857rem] text-[#312f4f] opacity-70">
               {installments}
+            </p>
+          </div>
+          {/* Description card */}
+          <div class="mt-4 sm:mt-6">
+            <Text variant="caption">
+              {description && (
+                <div class="ml-2 mt-2 text-[14px] text-[#312f4f]">{description}</div>
+              )}
             </Text>
           </div>
           {/* Sku Selector */}
@@ -112,22 +141,56 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 sellerId={seller}
               />
             )}
-            <Button variant="secondary">
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
-              Favoritar
-            </Button>
           </div>
-          {/* Description card */}
-          <div class="mt-4 sm:mt-6">
-            <Text variant="caption">
-              {description && (
-                <details>
-                  <summary class="cursor-pointer">Descrição</summary>
-                  <div class="ml-2 mt-2">{description}</div>
-                </details>
-              )}
-            </Text>
+          <div class="h-[1px] w-full my-[40px] bg-[#312f4f]"></div>
+          <div>
+            <form>
+              <p class="mb-[10px] text-[#312f4f] text-[16px] font-bold">calcular frete e prazo</p>
+              <div class="flex gap-[8px]">
+                <input class="w-[50%] font-medium text-[14px] p-[10px] border-1 border-[#312f4f] rounded" name="cep" maxLength={9} placeholder="CEP" type="text" required />
+                <button class="w-[50%] text-[#312f4f] font-bold text-[14px] p-[10px] border-2 border-[#b0aecf] rounded" type="submit" text-original="calcular" text-progress="calculando">CALCULAR</button>
+              </div>
+            </form>
           </div>
+          <div class="h-[1px] w-full my-[40px] bg-[#312f4f]"></div>
+          <div>
+            <p class="font-bold text-[16px] mb-[.8rem] text-[#312f4f]">compartilhar</p>
+            <div class="flex flex-row gap-[.5rem]">
+              <a href="/">
+                <Icon
+                  id={"Facebook"}
+                  width={25}
+                  height={25}
+                  strokeWidth={1}
+                />
+              </a>
+              <a  href="/">
+                <Icon
+                  id={"Instagram"}
+                  width={25}
+                  height={25}
+                  strokeWidth={1}
+                />
+              </a>
+              <a href="/">
+                <Icon
+                  id={"Facebook"}
+                  width={25}
+                  height={25}
+                  strokeWidth={1}
+                />
+              </a>
+              <a href="/">
+                <Icon
+                  id={"Instagram"}
+                  width={25}
+                  height={25}
+                  strokeWidth={1}
+                />
+              </a>
+            </div>
+          </div>
+          <div class="h-[1px] w-full my-[40px] bg-[#312f4f]"></div>
         </div>
       </div>
     </Container>

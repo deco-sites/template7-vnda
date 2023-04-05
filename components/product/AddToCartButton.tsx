@@ -13,9 +13,9 @@ function AddToCartButton({ skuId, sellerId }: Props) {
   });
 
   return (
-    <Button data-deco="add-to-cart" {...props} class="w-full">
-      Adicionar à Sacola
-    </Button>
+    <button data-deco="add-to-cart" {...props} class="w-full text-[18px] bg-[#312f4f] p-[2px] rounded tracking-[.08em] text-[#fff]">
+      ADICIONAR AO CARRINHO
+    </button>
   );
 }
 
