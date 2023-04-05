@@ -34,7 +34,40 @@ function GlobalTags() {
          * domain since DNS resolution times can really affect performance.
          */
       }
-      
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(${asset("/fonts/Montserrat-Regular.woff2")}) format('woff2');
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(${asset("/fonts/Montserrat-Medium.woff2")}) format('woff2');
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(${asset("/fonts/Montserrat-Light.woff2")}) format('woff2');
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(${asset("/fonts/Montserrat-Bold.woff2")}) format('woff2');
+          }
+          `,
+        }}
+      />
     </Head>
   );
 }
