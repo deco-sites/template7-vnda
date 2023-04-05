@@ -19,7 +19,7 @@ function Newsletter({newsletterImage,newsletterAltImage,newsletterHrefImage}:Pro
             alt={newsletterAltImage}
             width={370}
             height={300}
-            loading="eager"
+            loading="lazy"
           />
         </a>
       </div>
