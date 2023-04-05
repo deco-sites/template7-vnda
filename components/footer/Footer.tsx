@@ -81,6 +81,7 @@ function Footer({ sections = [], email, address, shortDescription, newsletterIma
                 width={25}
                 height={25}
                 strokeWidth={1}
+                aria-label="Facebook"
               />
             </a>
             <a class="bg-[#fff] rounded-full" href="/">
@@ -89,6 +90,7 @@ function Footer({ sections = [], email, address, shortDescription, newsletterIma
                 width={25}
                 height={25}
                 strokeWidth={1}
+                aria-label="Instagram"
               />
             </a>
             <a class="bg-[#fff] rounded-full" href="/">
@@ -97,6 +99,7 @@ function Footer({ sections = [], email, address, shortDescription, newsletterIma
                 width={25}
                 height={25}
                 strokeWidth={1}
+                aria-label="Facebook"
               />
             </a>
             <a class="bg-[#fff] rounded-full" href="/">
@@ -105,6 +108,7 @@ function Footer({ sections = [], email, address, shortDescription, newsletterIma
                 width={25}
                 height={25}
                 strokeWidth={1}
+                aria-label="Instagram"
               />
             </a>
           </FooterContainer>

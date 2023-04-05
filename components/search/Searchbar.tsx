@@ -137,6 +137,7 @@ function Searchbar({
             class="flex-grow outline-none placeholder-shown:sibling:hidden"
             name={name}
             defaultValue={query}
+            aria-label={'search-input'}
             onInput={(e) => {
               const value = e.currentTarget.value;
 

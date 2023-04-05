@@ -70,7 +70,7 @@ function Instafeed({
       >
         {posts?.map((post) => (
           <div class="min-w-[28vw] md:min-w-[29vw] lg:min-w-[22vw] xl:min-w-[212px] rounded border border-[#c0bfd6]">
-            <Image loading="lazy" class="min-w-[28vw] md:min-w-[29vw] lg:min-w-[22vw] xl:min-w-[212px] rounded" width={115} height={115} src={post.Image} />
+            <Image alt={'instagran post'} loading="lazy" class="min-w-[28vw] md:min-w-[29vw] lg:min-w-[22vw] xl:min-w-[212px] rounded" width={115} height={115} src={post.Image} />
           </div>
         ))}
       </Slider>
