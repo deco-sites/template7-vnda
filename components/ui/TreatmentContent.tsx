@@ -108,6 +108,7 @@ function TreatmentContent({
             class="w-full"
             width={382}
             height={315}
+            loading={'eager'}
           />
         </div>
       </div>
