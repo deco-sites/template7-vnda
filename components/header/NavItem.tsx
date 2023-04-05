@@ -17,7 +17,7 @@ function NavItem({ item, scrollPosition }: { item: INavItem, scrollPosition:numb
   return (
     <li class="group flex items-center">
       <a href={href} class="px-4 py-3">
-        <param
+        <p
           class={`group-hover:opacity-50 text-[.9rem] text-[#312f4f] flex gap-[5px] ${bold ? 'font-bold' : null} ${red ? 'text-[red]' : null}`}
         >
           {label}
@@ -29,7 +29,7 @@ function NavItem({ item, scrollPosition }: { item: INavItem, scrollPosition:numb
               strokeWidth={1.5}
             />
           )}
-        </param>
+        </p>
       </a>
 
       {children && children.length > 0 &&
