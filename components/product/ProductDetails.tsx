@@ -8,9 +8,16 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type { ImageObject, ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import Slider from "$store/components/ui/Slider.tsx";
+import SliderControllerJS from "$store/islands/SliderJS.tsx";
+import { useId } from "preact/hooks";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
+
+interface Dots {
+  imagesProduct?: ImageObject[];
+}
 
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
@@ -29,6 +36,84 @@ function NotFound() {
   );
 }
 
+function Controls() {
+  return (
+    <>
+      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 md:absolute md:left-[86px] md:top-1/2 md:translate-y-[-50%]">
+        <button
+          class="h-12 w-12 focus:outline-none"
+          data-slide="prev"
+          aria-label="Previous item"
+        >
+          <Icon
+              class=""
+              id="ChevronLeft"
+              height={20}
+              width={20}
+              strokeWidth={1.5}
+            />
+        </button>
+      </div>
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 md:absolute md:right-0 md:top-1/2 md:translate-y-[-50%]">
+        <button
+          class="h-12 w-12 focus:outline-none"
+          data-slide="next"
+          aria-label="Next item"
+        >
+          <Icon
+              class=""
+              id="ChevronRight"
+              height={20}
+              width={20}
+              strokeWidth={1.5}
+            />
+        </button>
+      </div>
+    </>
+  );
+}
+
+function Dots({ imagesProduct }: Dots) {
+  return (
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @property --dot-progress {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 0%;
+          }`,
+        }}
+      >
+      </style>
+      <ol class="flex items-center justify-center col-span-full z-10 row-start-4 min-w-[100px] lg:flex-col lg:z-0 lg:justify-start lg:mt-[30px] md:max-h-[373px] gap-[10px]">
+        {imagesProduct?.map((_: ImageObject, index: number) => (
+          <li class="lg:h-auto">
+            <button
+              data-dot={index}
+              aria-label={`go to slider item ${index}`}
+              class="h-full w-[100px] rounded focus:outline-none group"
+            >
+              <Image
+                style={{ aspectRatio: "432 / 432" }}
+                src={_.url!}
+                alt={_.alternateName}
+                width={100}
+                class="w-full"
+                height={100}
+                // Preload LCP image for better web vitals
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </button>
+          </li>
+        ))}
+      </ol>
+    </>
+  );
+}
+
 function Details({ page }: { page: ProductDetailsPage }) {
   const {
     breadcrumbList,
@@ -42,8 +127,12 @@ function Details({ page }: { page: ProductDetailsPage }) {
     name,
     gtin,
   } = product;
+  const sliderId = useId();
+  const thumbsSliderId = useId();
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
+
+  console.log(product)
 
   return (
     <Container class="max-w-[1296px] md:px-[32px] mt-[4rem] md:mt-[5rem]">
@@ -77,7 +166,59 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
         </div>
         {/* Image Gallery */}
-        <div class="md:w-[60%] md:(flex mt-8)">
+          <div
+            id={sliderId}
+            class="md:hidden grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
+          >
+            <Slider class="col-span-full row-span-full gap-6">
+              {images?.map((img, index) => (
+                <Image
+                  style={{ aspectRatio: "432 / 432" }}
+                  class="min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
+                  sizes="(max-width: 640px) 100vw, 30vw"
+                  src={img.url!}
+                  alt={img.alternateName}
+                  width={432}
+                  height={432}
+                  // Preload LCP image for better web vitals
+                  preload={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              ))}
+            </Slider>
+
+            <SliderControllerJS rootId={sliderId} />
+          </div>
+
+          {/* Image Gallery Desktop */}
+          <div
+            id={thumbsSliderId}
+            class="hidden md:flex md:w-[70%] md:overflow-hidden md:max-h-[552px] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:relative"
+          >
+            <Dots imagesProduct={images} />
+
+            <Slider class="col-span-full row-span-full scrollbar-none gap-6 max-w-full">
+              {images?.map((img, index) => (
+                <Image
+                  style={{ aspectRatio: "432 / 432" }}
+                  class="w-[100vw] max-w-[590px]"
+                  sizes="(max-width: 640px) 100vw, 30vw"
+                  src={img.url!}
+                  alt={img.alternateName}
+                  width={432}
+                  height={432}
+                  // Preload LCP image for better web vitals
+                  preload={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              ))}
+            </Slider>
+            <Controls />
+            <SliderControllerJS
+              rootId={thumbsSliderId}
+            />
+          </div>
+        {/* <div class="md:w-[60%] md:(flex mt-8)">
           <div class="hidden md:(flex flex-col w-[15%] gap-[10px])">
             {[front, back ?? front].map((img, index) => (
               <Image
@@ -108,7 +249,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
               />
             ))}
           </div>
-        </div>
+        </div> */}
         {/* Product Info */}
         <div class="flex-auto md:w-[40%] px-4 sm:px-0">
           {/* Code and name */}

@@ -39,7 +39,7 @@ function AddToCartButton({ skuId, sellerId}: Props) {
           </div>
         </div>
       </div>
-      <button data-deco="add-to-cart" {...props} class="w-full text-[18px] bg-[#312f4f] p-[2px] rounded tracking-[.08em] text-[#fff]">
+      <button data-deco="add-to-cart" {...props} class="w-full text-[18px] lg:text-[14px] bg-[#312f4f] p-[2px] rounded tracking-[.08em] text-[#fff]">
         ADICIONAR AO CARRINHO
       </button>
     </>
