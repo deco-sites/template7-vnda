@@ -132,8 +132,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
 
-  console.log(product)
-
   return (
     <Container class="max-w-[1296px] md:px-[32px] mt-[4rem] md:mt-[5rem]">
       <div class="flex flex-col gap-4 md:flex-row sm:gap-10">
