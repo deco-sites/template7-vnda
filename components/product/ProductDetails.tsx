@@ -39,7 +39,7 @@ function NotFound() {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 md:absolute md:left-[86px] md:top-1/2 md:translate-y-[-50%]">
+      <div class="hidden md:flex items-center justify-center z-10 col-start-1 row-start-2 md:absolute md:left-[86px] md:top-1/2 md:translate-y-[-50%]">
         <button
           class="h-12 w-12 focus:outline-none"
           data-slide="prev"
@@ -54,7 +54,7 @@ function Controls() {
             />
         </button>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 md:absolute md:right-0 md:top-1/2 md:translate-y-[-50%]">
+      <div class="hidden md:flex items-center justify-center z-10 col-start-3 row-start-2 md:absolute md:right-0 md:top-1/2 md:translate-y-[-50%]">
         <button
           class="h-12 w-12 focus:outline-none"
           data-slide="next"
@@ -87,7 +87,7 @@ function Dots({ imagesProduct }: Dots) {
         }}
       >
       </style>
-      <ol class="flex items-center justify-center col-span-full z-10 row-start-4 min-w-[100px] lg:flex-col lg:z-0 lg:justify-start lg:mt-[30px] md:max-h-[373px] gap-[10px]">
+      <ol class="hidden md:flex items-center justify-center col-span-full z-10 row-start-4 min-w-[100px] md:flex-col md:z-0 md:justify-start md:mt-[30px] md:max-h-[373px] gap-[10px]">
         {imagesProduct?.map((_: ImageObject, index: number) => (
           <li class="lg:h-auto">
             <button
@@ -166,7 +166,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
         </div>
         {/* Image Gallery */}
-          <div
+          {/* <div
             id={sliderId}
             class="md:hidden grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
           >
@@ -188,12 +188,12 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </Slider>
 
             <SliderControllerJS rootId={sliderId} />
-          </div>
+          </div> */}
 
           {/* Image Gallery Desktop */}
           <div
             id={thumbsSliderId}
-            class="hidden md:flex md:w-[70%] md:overflow-hidden md:max-h-[552px] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:relative"
+            class="flex md:w-[70%] md:overflow-hidden md:max-h-[552px] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:relative"
           >
             <Dots imagesProduct={images} />
 
@@ -205,8 +205,8 @@ function Details({ page }: { page: ProductDetailsPage }) {
                   sizes="(max-width: 640px) 100vw, 30vw"
                   src={img.url!}
                   alt={img.alternateName}
-                  width={432}
-                  height={432}
+                  width={590}
+                  height={590}
                   // Preload LCP image for better web vitals
                   preload={index === 0}
                   loading={index === 0 ? "eager" : "lazy"}
