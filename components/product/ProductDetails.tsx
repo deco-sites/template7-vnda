@@ -166,31 +166,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
         </div>
         {/* Image Gallery */}
-          {/* <div
-            id={sliderId}
-            class="md:hidden grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
-          >
-            <Slider class="col-span-full row-span-full gap-6">
-              {images?.map((img, index) => (
-                <Image
-                  style={{ aspectRatio: "432 / 432" }}
-                  class="min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
-                  sizes="(max-width: 640px) 100vw, 30vw"
-                  src={img.url!}
-                  alt={img.alternateName}
-                  width={432}
-                  height={432}
-                  // Preload LCP image for better web vitals
-                  preload={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
-                />
-              ))}
-            </Slider>
-
-            <SliderControllerJS rootId={sliderId} />
-          </div> */}
-
-          {/* Image Gallery Desktop */}
           <div
             id={thumbsSliderId}
             class="flex md:w-[70%] md:overflow-hidden md:max-h-[552px] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:relative"
@@ -218,38 +193,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
               rootId={thumbsSliderId}
             />
           </div>
-        {/* <div class="md:w-[60%] md:(flex mt-8)">
-          <div class="hidden md:(flex flex-col w-[15%] gap-[10px])">
-            {[front, back ?? front].map((img, index) => (
-              <Image
-                style={{ aspectRatio: "55 / 55" }}
-                class="w-full"
-                src={img.url!}
-                alt={img.alternateName}
-                width={55}
-                height={55}
-                // Preload LCP image for better web vitals
-                preload={index === 0}
-                loading={index === 0 ? "eager" : "eager"}
-              />
-            ))}
-          </div>
-          <div class="flex md:(w-[85%]) flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
-            {[front, back ?? front].map((img, index) => (
-              <Image
-                style={{ aspectRatio: "414 / 414" }}
-                class="snap-cente w-full"
-                src={img.url!}
-                alt={img.alternateName}
-                width={414}
-                height={414}
-                // Preload LCP image for better web vitals
-                preload={index === 0}
-                loading={index === 0 ? "eager" : "lazy"}
-              />
-            ))}
-          </div>
-        </div> */}
+        
         {/* Product Info */}
         <div class="flex-auto md:w-[40%] px-4 sm:px-0">
           {/* Code and name */}
