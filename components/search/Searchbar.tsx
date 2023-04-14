@@ -110,31 +110,31 @@ function Searchbar({
 
   return (
     <div class={`flex flex-col p-4 md:(py-6 px-20) ${scrollPosition > 0 ? 'hidden' : ''}`}>
-      <div class="flex gap-4 md:(w-[30%] mx-auto)">
+      <div class="flex gap-4 md:(w-[22%] mx-auto)">
         <form
           id="searchbar"
           action={action}
-          class="h-[1.786rem] flex-grow flex gap-3 rounded-[.3rem] border border-[#312f4f]"
+          class="h-[25px] 2xl:h-[34px] flex-grow flex gap-1 rounded-[.3rem] border border-[#312f4f] md:min-w-[277px]"
         >
           <Button
-            class="h-[25px]"
+            class="h-[15px] 2xl:h-[32px] flex items-center justify-center"
             variant="icon"
             aria-label="Search"
             htmlFor="searchbar"
             tabIndex={-1}
           >
             <Icon
-              class="text-subdued"
+              class="text-[#312f4f] 2xl:(h-[20px] w-[20px])"
               id="MagnifyingGlass"
-              width={15}
-              height={15}
+              width={17}
+              height={17}
               strokeWidth={0.01}
             />
           </Button>
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow md:w-[17.5rem] outline-none placeholder-shown:sibling:hidden text-[.857rem] font-medium leading-[1.1em] tracking-[.5px] text-[#949494] rounded-[.3rem]"
             name={name}
             defaultValue={query}
             aria-label={'search-input'}
