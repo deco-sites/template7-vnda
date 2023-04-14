@@ -140,6 +140,21 @@ const options: Omit<Options, "selfURL"> = {
       overflow: "hidden",
       height: "100vh",
     },
+    ".rangeInput": {
+      '-webkit-appearance': 'none',
+      'line-height': '1.15'
+    },
+    ".rangeInput::-webkit-slider-thumb": {
+      '-webkit-appearance': 'none',
+      background: '#fff',
+      width: '17px',
+      height: '17px',
+      borderRadius: '100%',
+      border: '1px solid #9499b3',
+      'pointer-events': 'all',
+      position: 'relative',
+      top: '5px'
+    }
   }),
   plugins: {
     backdrop: {
