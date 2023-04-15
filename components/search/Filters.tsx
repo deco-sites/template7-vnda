@@ -98,7 +98,7 @@ export default function Filters({ filters }: Props) {
           </li>
           )
         })}
-        {
+        {/* {
           filters
             .filter(filter => filter["@type"] === "FilterRange")
             .map((filter) => {
@@ -145,7 +145,7 @@ export default function Filters({ filters }: Props) {
                 </li>
               )
             })
-        }
+        } */}
     </ul>
   );
 }
